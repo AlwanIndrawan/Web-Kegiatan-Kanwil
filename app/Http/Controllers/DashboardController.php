@@ -13,7 +13,7 @@ class DashboardController extends Controller
         $totalBidang = Bidang::count();
         $kegiatanHariIni = Kegiatan::whereDate('tanggal', now())->count();
         $kegiatanBulanIni = Kegiatan::whereMonth('tanggal', now()->month)->count();
-        $kegiatans = Kegiatan::with('bidang')->latest()->limit(5)->get();
+        $kegiatans = Kegiatan::with('bidang')->latest()->limit(5)->get();   
 
         return view('dashboard', compact(
     'totalKegiatan',

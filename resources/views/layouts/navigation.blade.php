@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="bg-blue-800 shadow">
+<nav x-data="{ open: false }" class="bg-blue-950 shadow">
 
     <div class="w-full px-6">
 

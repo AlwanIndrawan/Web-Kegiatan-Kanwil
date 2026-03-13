@@ -14,6 +14,7 @@ protected $fillable = [
     'bidang_id',
     'judul',
     'deskripsi',
-    'tanggal'
+    'tanggal',
+    'foto'
 ];
 }

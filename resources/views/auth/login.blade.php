@@ -6,7 +6,7 @@
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-blue-600 flex items-center justify-center min-h-screen">
+<body class="bg-blue-950 flex items-center justify-center min-h-screen">
 
 <div class="bg-white w-96 p-8 rounded-lg shadow-lg">
 

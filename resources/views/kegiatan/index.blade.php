@@ -33,20 +33,20 @@
 
                 <td class="p-2 border text-center">
 
-                @if($kegiatan->foto)
+                    @if($kegiatan->foto)
 
-                <img 
-                src="{{ asset('storage/'.$kegiatan->foto) }}"
-                class="h-16 mx-auto cursor-pointer hover:scale-110 transition"
-                onclick="showImage('{{ asset('storage/'.$kegiatan->foto) }}')">
+                     <img 
+                        src="{{ asset('storage/'.$kegiatan->foto) }}"
+                        class="h-16 mx-auto cursor-pointer"
+                        onclick="showImage(this.src)">
 
-                @else
+                    @else
 
-                <span class="text-gray-400 text-sm">
-                Tidak ada
-                </span>
+                        <span class="text-gray-400 text-sm">
+                            Tidak ada
+                        </span>
 
-                @endif
+                    @endif
 
                 </td>
 

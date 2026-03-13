@@ -6,7 +6,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-blue-600 flex items-center justify-center min-h-screen">
+<body class="bg-blue-950 flex items-center justify-center min-h-screen">
 
 <div class="bg-white p-8 rounded-xl shadow-lg w-96">
 
@@ -52,6 +52,33 @@
                    required>
 
             @error('email')
+                <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <!-- Bidang -->
+        <div class="mb-4">
+            <label class="block text-sm font-medium text-gray-700">
+                Bidang
+            </label>
+
+            <select name="bidang_id"
+                class="w-full mt-1 p-2 border rounded-lg focus:ring focus:ring-blue-300"
+                required>
+
+                <option value="">Pilih Bidang</option>
+
+                @foreach(\App\Models\Bidang::all() as $bidang)
+
+                <option value="{{ $bidang->id }}">
+                    {{ $bidang->nama }}
+                </option>
+
+                @endforeach
+
+            </select>
+
+            @error('bidang_id')
                 <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
             @enderror
         </div>
