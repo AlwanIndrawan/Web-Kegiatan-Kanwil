@@ -52,13 +52,13 @@ $bidangs = Bidang::all();
     ->select('bidangs.nama as bidang', DB::raw('count(*) as total'))
     ->groupBy('bidangs.nama')
     ->orderByRaw("
-        FIELD(bidangs.nama,
-        'Kakanwil',
-        'Kabagtum',
-        'Intelpatnal',
-        'Wasdakim',
-        'Dokjalintalstatuskim'
-        )
+        CASE bidangs.nama
+        WHEN 'Kakanwil' THEN 1
+        WHEN 'Kabagtum' THEN 2
+        WHEN 'Intelpatnal' THEN 3
+        WHEN 'Wasdakim' THEN 4
+        WHEN 'Dokjalintalstatuskim' THEN 5
+        ELSE 6 END
     ")
     ->get();
 
@@ -67,7 +67,7 @@ $bidangs = Bidang::all();
 
     // Statistik kegiatan per bulan dalam 1 tahun
     $bulan = DB::table('kegiatans')
-        ->select(DB::raw('MONTH(tanggal) as bulan'), DB::raw('count(*) as total'))
+        ->select(DB::raw('EXTRACT(MONTH FROM tanggal)::integer as bulan'), DB::raw('count(*) as total'))
         ->groupBy('bulan')
         ->orderBy('bulan')
         ->get();
